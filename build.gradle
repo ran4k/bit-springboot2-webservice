@@ -1,0 +1,36 @@
+buildscript {
+    ext { //전역변수설정
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories { //
+        mavenCentral()
+        jcenter()
+    }
+    dependencies { //building도구 환경에서 springboot를 위한 plugin
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.spring.framework.boot'
+apply plugin: 'io.spring.dependency-management'//springboot 의존성 관리
+
+group 'com.example.web'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+
+    testCompile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+test {
+    useJUnitPlatform()
+}
