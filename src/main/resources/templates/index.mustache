@@ -1,0 +1,53 @@
+<!--<!DOCTYPE HTML>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Srping Boot Web</title>-->
+<!--    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8"/>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Spring Boot Web</h1>-->
+<!--</body>-->
+<!--</html>-->
+
+{{>layout/header}} <!--layout폴더 안의 header.mustache를 포함시킴-->
+
+<h1>Spring Boot Web</h1>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+            {{#userName}}
+                Logged in as : <span id="user">{{userName}}</span>
+                <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+            {{/userName}}
+            {{^userName}}
+                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google</a>
+                <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver</a>
+            {{/userName}}
+        </div>
+    </div>
+    <br>
+    <!--목록 출력 영역-->
+    <table class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+            <tr>
+                <th>게시글번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>최종수정일</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#posts}}  <!--posts list를 꺼내서 출력해준다: for문(반복문)이 들어있다는 표현-->
+            <tr>
+                <td>{{id}}</td>
+                <td><a href="/posts/update/{{id}}">{{title}}</a></td>
+                <td>{{author}}</td>
+                <td>{{modifiedDate}}</td>
+            </tr>
+        {{/posts}}
+        </tbody>
+    </table>
+</div>
+
+{{>layout/footer}}
