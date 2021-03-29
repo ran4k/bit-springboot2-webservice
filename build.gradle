@@ -50,6 +50,9 @@ dependencies {
     //spring security dependency
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
 
+    //mariadb 연동
+    compile("org.mariadb.jdbc:mariadb-java-client")
+
 }
 
 test {
