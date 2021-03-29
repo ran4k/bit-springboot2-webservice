@@ -31,15 +31,25 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile('org.springframework.boot:spring-boot-starter-web')
+
     compile('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
     testAnnotationProcessor('org.projectlombok:lombok')
-    compile('org.springframework.boot:spring-boot-starter-data-jpa') //mybatis,jpa
-    compile('com.h2database:h2') //in-memory Relational DB:
-                    // 메모리상에 올라간 db(영구적db 아니어서 test용도 多, 속도빠름)
-    compile('org.springframework.boot:spring-boot-starter-mustache')
+
+    //jpa
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    //in-memory Relational DB:메모리상에 올라간 db(영구적db 아니어서 test용도 多, 속도빠름)
+    compile('com.h2database:h2')
     //mustache: view페이지 화면을 구성할 수 있는 template (jsp페이지와 비슷)
+    compile('org.springframework.boot:spring-boot-starter-mustache')
+
+    //jdbc
+    /*compile('org.springframework.session:spring-session.jdbc')
+    compile('org.mariadb.jdbc:mariadb-java-client')*/
+
+    //spring security dependency
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+
 }
 
 test {
